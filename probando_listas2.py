@@ -21,9 +21,17 @@ def CargarCliente():
     personas[nombre] = apellido
     
 def CargarLocalidad():
-    localidad = raw_input("Ingrese el nombre del cliente:")
-    apellido = raw_input("Ingrese el apellido del cliente:")
-    personas[nombre] = apellido
+    localidad = raw_input("Ingrese el nombre de la localidad:")
+    localidades.append(localidad)
+    
+def ListarLocalidades():
+    print "La lista de localidades es:"
+    repetir = 1 
+    for localidad in localidades:
+        print "Localidad Nro:%i %s" % (repetir , localidad)
+        repetir += 1
+    raw_input("presione <enter> para continuar")
+
 
 def ListarClientes():
     print "La lista de clientes es:"
