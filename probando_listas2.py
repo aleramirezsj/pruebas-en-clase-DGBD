@@ -67,6 +67,8 @@ while True:
     elif (opcion== 4):
         ListarLocalidades()
     elif (opcion == 5):
+        for i in range(100):
+            print "Adios"
         break
     else:
         raw_input("ERROR, opción no válida, presione <enter> para continuar")
