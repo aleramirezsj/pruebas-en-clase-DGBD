@@ -1,14 +1,30 @@
-# -*- coding: cp1252 -*-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 '''Created on 24/08/2012
  
  
 @author: Ramirez'''
+
+def Imprimir(diccionario,promedio,tipo_personas):
+    print "Los %s ingresados son:" %tipo_personas
+    for clave in diccionario:   
+        print clave
+    print "el promedio de edad de los %s es %0.2f " %(tipo_personas,promedio)
  
+def CalcularPromedio(diccionario):
+    total=0
+    for clave in diccionario:   
+        total+=diccionario[clave]
+    promedio=float(total)/diccionario.__len__()
+    return promedio
+
  
 continuar="si"
 chicos={}
 adultos={}
 ancianos={}
+
+
 while continuar=="si":
     nombre=raw_input("Ingrese su nombre:")
     edad=raw_input("Ingrese su edad:")
@@ -20,30 +36,12 @@ while continuar=="si":
         ancianos[nombre]=int(edad)
     continuar=raw_input("¿Desea ingresar otra persona?(Escriba si o no)")
  
-totalChicos=0
-totalAdultos=0
-totalAncianos=0
  
- 
-for clave in chicos:   
-    totalChicos+=chicos[clave]
-promedioChicos=float(totalChicos)/chicos.__len__()
-for clave in adultos:   
-    totalAdultos+=adultos[clave]
-promedioAdultos=float(totalAdultos)/adultos.__len__()
-for clave in ancianos:   
-    totalAncianos+=ancianos[clave]
-promedioAncianos=float(totalAncianos)/ancianos.__len__()
- 
-print "Los chicos ingresados son:"
-for clave in chicos:   
-    print clave
-print "el promedio de edad de los chicos es "+str(promedioChicos)
-print "Los adultos ingresados son:"
-for clave in adultos:   
-    print clave
-print "el promedio de edad de los adultos es "+str(promedioAdultos)
-print "Los ancianos ingresados son:"
-for clave in ancianos:   
-    print clave
-print "el promedio de edad de los ancianos es "+str(promedioAncianos)
+
+promedioChicos=CalcularPromedio(chicos)
+promedioAdultos=CalcularPromedio(adultos)
+promedioAncianos=CalcularPromedio(ancianos)
+
+Imprimir(chicos,promedioChicos,"Chicos")
+Imprimir(adultos,promedioAdultos,"Adultos")
+Imprimir(ancianos,promedioAncianos, "Ancianos")
