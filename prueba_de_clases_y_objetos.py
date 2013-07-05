@@ -16,3 +16,7 @@ class Split:
     def MostrarInformacion(self):
         print "Split de color "+self.color
         print "Temperatura="+str(self.temperatura)
+    
+misplit=Split("Blanco")
+misplit.SubirTemperatura()
+misplit.MostrarInformacion()
